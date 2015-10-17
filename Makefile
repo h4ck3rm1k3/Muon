@@ -1,7 +1,12 @@
+
+#testcreate:
+#	python3.4 src/muon2 mikes@createcafe.net
+
 test:
 	#- rm ~/.muon
 	#- rm ~/.config/PyPump/credentials.json
 	#strace -f -eopen
+
 	python3.4 src/muon2 h4ck3rm1k3@identi.ca
 
 test2:

@@ -83,4 +83,4 @@ if __name__ == "__main__":
                 print("Following" + follower.id)
                 seen[follower.id]=1
                 follower.follow()
-                time.sleep(1)
+                time.sleep(3)
