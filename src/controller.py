@@ -27,7 +27,7 @@ class Controller(Actor):
     def setup(self, message):
         self.unpack(message.body)
         self.hive.send_message(
-            to="muon",
+            to="muon@muon",
             directive="read_config"
             )
 
@@ -40,7 +40,7 @@ class Controller(Actor):
             config = dict()
 
         self.hive.send_message(
-            to="pump",
+            to="pump@muon",
             directive="setup",
             body=config
             ) 
@@ -54,8 +54,10 @@ class Controller(Actor):
 
     def start_gui(self, message):
         self.gui.start_gui()
-        time.sleep(1.25) # time it may take to get the GUI up
+        #time.sleep(1.25) # time it may take to get the GUI up
         self.gui.draw_inbox()
+        #pass
 
     def stop_gui(self, message):
         self.gui.quit()
+        #pass

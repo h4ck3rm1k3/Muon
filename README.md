@@ -41,6 +41,12 @@ To run muon currently you just do
 $ ./src/muon
 ```
 
+Credentials
+-----------
+
+Stored here
+
+    ~/.config/PyPump/credentials.json
 
 Bugs || Feature requests
 ------------------------

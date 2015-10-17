@@ -1,24 +1,38 @@
 #!/usr/bin/env python
+import sys
+sys.path.append("../asyncio")
+sys.path.append("../xudd")
+sys.path.append("../PyPump")
+sys.path.append("../oauthlib")
+sys.path.append("../requests-oauthlib")
+sys.path.append("../dateutil")
 
-from xudd.hive import Hive 
-
+from xudd.hive import Hive
+from xudd.tools import join_id
 from pump import Pump
 from controller import Controller
 from ui import CLI
-
 if __name__ == "__main__":
-    hive = Hive()
+    if len(sys.argv) > 0:
+        webfinger = sys.argv[1]
+    else:
+        webfinger = raw_input("Webfinger: ").lstrip(" ").rstrip(" ")
+    #print "webfinger:" +webfinger
+    #someid = join_id("muon","muon")
+    hive = Hive("muon")
     
-    hive.create_actor(Pump, id="pump")
+    hive.create_actor(Pump, id="pump", webfinger=webfinger)
     hive.create_actor(Controller, id="muon")
 
-    cli = CLI(hive)
+    #cli = CLI(hive)
     
     hive.send_message(
-        to="muon",
+        to="muon@muon",
         directive="setup",
-        body={"gui": cli}
+        body={
+            #"gui": cli
+          }
         )
 
-    hive.start()
-    cli.run()
+    hive.run()
+    #cli.run()
