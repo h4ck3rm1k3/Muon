@@ -1,6 +1,8 @@
 
 #testcreate:
 #	python3.4 src/muon2 mikes@createcafe.net
+fire:
+	python3.4 src/muon3 h4ck3rm1k3@identi.ca
 
 test:
 	#- rm ~/.muon
